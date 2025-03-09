@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Happy Birthday Thejaa💗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Glitter Sparkles -->
+    <div class="glitter"></div>
+    <div class="glitter"></div>
+    <div class="glitter"></div>
+    <div class="glitter"></div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="audio/happy_birthday.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Play Music Button -->
+    <button id="playMusicButton">🎵 Play Background Music</button>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Enter Username">
+            <input type="password" id="password" placeholder="Enter Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var loginForm = document.getElementById("loginForm");
+            var usernameInput = document.getElementById("username");
+            var passwordInput = document.getElementById("password");
+            var bgMusic = document.getElementById("bgMusic");
+            var playMusicButton = document.getElementById("playMusicButton");
+
+            // ✅ Restore Music Playback if Already Playing
+            if (localStorage.getItem("musicPlaying") === "true") {
+                bgMusic.play();
+                playMusicButton.style.display = "none"; // Hide button if already playing
+            }
+
+            // ✅ Play Music on Button Click
+            playMusicButton.addEventListener("click", function () {
+                bgMusic.play()
+                    .then(() => {
+                        localStorage.setItem("musicPlaying", "true"); // Save state
+                        playMusicButton.style.display = "none"; // Hide button
+                    })
+                    .catch(error => console.log("Error playing music:", error));
+            });
+
+            loginForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent page reload
+
+                var username = usernameInput.value.trim();
+                var password = passwordInput.value.trim();
+
+                if (username === "" || password === "") {
+                    alert("Please enter both username and password.");
+                    return;
+                }
+
+                var validUsername = "Mr.Thejuoo<<3!!..";
+                var validPassword = "theja@soundharya";
+
+                if (username === validUsername && password === validPassword) {
+                    alert("Login successful!");
+                    
+                    // ✅ Save Music Playing State Before Redirecting
+                    localStorage.setItem("musicPlaying", !bgMusic.paused);
+
+                    window.location.href = "home.html"; // Redirect to home page
+                } else {
+                    alert("Invalid username or password. Try again.");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

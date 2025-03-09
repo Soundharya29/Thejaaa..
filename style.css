@@ -1,0 +1,233 @@
+/* 🌌 Dark-Themed Background with Sparkles */
+body {
+    background-color: #060d1f; /* Deep dark blue */
+    overflow: hidden; /* Prevents unnecessary scrolling */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto; /* Enable scrolling */
+}
+
+/* ✨ Glitter Effect (Tiny Sparkles) */
+@keyframes glitter {
+    0% { opacity: 0; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+.glitter {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: glitter 2s infinite ease-in-out;
+}
+
+/* 🪐 Randomly Place Sparkles */
+.glitter:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.glitter:nth-child(2) { top: 40%; left: 50%; animation-delay: 0.5s; }
+.glitter:nth-child(3) { top: 70%; left: 30%; animation-delay: 1s; }
+.glitter:nth-child(4) { top: 20%; left: 80%; animation-delay: 1.5s; }
+.glitter:nth-child(5) { top: 60%; left: 10%; animation-delay: 2s; }
+.glitter:nth-child(6) { top: 90%; left: 60%; animation-delay: 2.5s; }
+.glitter:nth-child(7) { top: 30%; left: 70%; animation-delay: 3s; }
+.glitter:nth-child(8) { top: 80%; left: 90%; animation-delay: 3.5s; }
+
+/* 🎁 Main Content Box (For Video, Image, and Text) */
+.wish-container {
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+    padding: 30px;
+    max-width: 90%;
+    width: 600px;
+    border-radius: 15px;
+    text-align: center;
+    overflow: hidden; /* Ensures no extra scrolling inside */
+    position: relative;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    color: white; /* White text for contrast */
+}
+
+/* 📷 Image Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3); /* Soft glow */
+}
+
+/* 🎥 Video Styling */
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* 🎉 Birthday Message Styling */
+.birthday-message {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: white; /* White text for contrast */
+    line-height: 1.6;
+    text-align: justify;
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* ✨ Logout Button Styling */
+#logoutButton {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+#logoutButton:hover {
+    background-color: #e91e63;
+}
+
+/* 🌍 Responsive Design */
+@media screen and (max-width: 768px) {
+    .wish-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .birthday-message {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    #logoutButton {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+/* 💡 Light Text Color for Login Page */
+.login-container {
+    color: #f8f9fa; /* Light grey for better visibility */
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* 🎨 Light Color for Input Fields */
+.login-container input {
+    background: rgba(255, 255, 255, 0.2); /* Soft background */
+    color: #ffffff; /* White text */
+    border: 1px solid #ddd; /* Light grey border */
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* 🖊️ Placeholder Text Color */
+.login-container input::placeholder {
+    color: #cccccc; /* Light grey */
+}
+
+/* 🔹 Fix Username & Password on Separate Lines */
+.login-container label {
+    display: block; /* Forces label to appear on a new line */
+    font-size: 18px;
+    margin-top: 10px;
+}
+/* 💡 Light Text Color for Login Page */
+.login-container {
+    color: #f8f9fa; /* Light grey text for visibility */
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+    width: 300px;
+}
+
+/* 🎨 Light Color for Input Fields */
+.login-container input {
+    background: rgba(255, 255, 255, 0.2); /* Soft background */
+    color: #ffffff; /* White text */
+    border: 1px solid #ddd; /* Light grey border */
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px; /* Add spacing between fields */
+}
+
+/* 🖊️ Placeholder Text Color */
+.login-container input::placeholder {
+    color: #cccccc; /* Light grey */
+}
+
+/* 🔹 Fix Username & Password on Separate Lines */
+.login-container label {
+    display: block; /* Forces label to appear on a new line */
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+/* 🖱️ Login Button Styling */
+.login-container button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.login-container button:hover {
+    background-color: #e91e63;
+}
+/* 🎆 Fireworks Canvas */
+#fireworksCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* So it doesn’t block clicks */
+    z-index: -1; /* Keep it behind the content */
+}
+#playMusicButton {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+
+#playMusicButton:hover {
+    background-color: #e91e63;
+}
+
+
+
+
