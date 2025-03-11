@@ -82,7 +82,7 @@
     <!-- Fireworks Canvas -->
     <canvas id="fireworksCanvas"></canvas>
 <script>
-        document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     var bgMusic = document.getElementById("bgMusic");
     var playMusicButton = document.getElementById("playMusicButton");
 
@@ -95,6 +95,13 @@
             })
             .catch(error => console.log("Error playing music:", error));
     });
+
+    // ✅ Restore Music State if user has played before
+    if (localStorage.getItem("musicPlaying") === "true") {
+        playMusicButton.click(); // Simulate click if user played before
+    }
+});
+
 
     // ✅ Restore Music State if user has played before
     if (localStorage.getItem("musicPlaying") === "true") {
