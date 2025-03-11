@@ -16,7 +16,7 @@
 
     <!-- Background Music -->
     <audio id="bgMusic" loop>
-         <source src="https://raw.githubusercontent.com/soundharya29/Thejaaa../main/audio/happy_birthday.mp3" type="audio/mp3">
+         <source src="audio/happy_birthday.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
@@ -82,27 +82,26 @@
 
     <!-- Fireworks Canvas -->
     <canvas id="fireworksCanvas"></canvas>
-
-    <script>
+<script>
         document.addEventListener("DOMContentLoaded", function () {
-            var bgMusic = document.getElementById("bgMusic");
-            var playMusicButton = document.getElementById("playMusicButton");
+    var bgMusic = document.getElementById("bgMusic");
+    var playMusicButton = document.getElementById("playMusicButton");
 
-            // ✅ Restore Music State (Continues from Login Page)
-            if (localStorage.getItem("musicPlaying") === "true") {
-                bgMusic.play();
-                playMusicButton.style.display = "none";
-            }
+    // ✅ Allow music to start only after user clicks the button
+    playMusicButton.addEventListener("click", function () {
+        bgMusic.play()
+            .then(() => {
+                localStorage.setItem("musicPlaying", "true");
+                playMusicButton.style.display = "none"; // Hide button after playing
+            })
+            .catch(error => console.log("Error playing music:", error));
+    });
 
-            // ✅ Play Music on Button Click
-            playMusicButton.addEventListener("click", function () {
-                bgMusic.play()
-                    .then(() => {
-                        localStorage.setItem("musicPlaying", "true");
-                        playMusicButton.style.display = "none"; // Hide button after playing
-                    })
-                    .catch(error => console.log("Error playing music:", error));
-            });
+    // ✅ Restore Music State if user has played before
+    if (localStorage.getItem("musicPlaying") === "true") {
+        playMusicButton.click(); // Simulate click if user played before
+    }
+});
 
             // 🚀 Logout Functionality
             var logoutButton = document.getElementById("logoutButton");
