@@ -15,9 +15,9 @@
     <div class="glitter"></div>
 
     <!-- Background Music -->
-   <audio id="bgMusic" loop>
-    <source src="https://docs.google.com/uc?export=download&id=11W69euM8CU88-d5EnbyTdXpbA13KLmRo" type="audio/mp3">
-</audio>
+    <audio id="bgMusic" loop>
+        <source src="https://docs.google.com/uc?export=download&id=11W69euM8CU88-d5EnbyTdXpbA13KLmRo" type="audio/mp3">
+    </audio>
 
     <!-- Play Music Button -->
     <button id="playMusicButton">🎵 Play Background Music</button>
@@ -34,8 +34,7 @@
         <p>And some beautiful memories...</p>
 
         <!-- Birthday Image -->
-      <img src="https://drive.google.com/uc?export=view&id=1GVYJpSXTUSi3AxB3Cuq7317Nm3RwKygY" alt="Happy Moment">
-
+        <img src="https://drive.google.com/uc?export=view&id=1GVYJpSXTUSi3AxB3Cuq7317Nm3RwKygY" alt="Happy Moment">
 
         <!-- Birthday Message -->
         <div class="birthday-message">
@@ -81,33 +80,26 @@
 
     <!-- Fireworks Canvas -->
     <canvas id="fireworksCanvas"></canvas>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    var bgMusic = document.getElementById("bgMusic");
-    var playMusicButton = document.getElementById("playMusicButton");
 
-    // ✅ Allow music to start only after user clicks the button
-    playMusicButton.addEventListener("click", function () {
-        bgMusic.play()
-            .then(() => {
-                localStorage.setItem("musicPlaying", "true");
-                playMusicButton.style.display = "none"; // Hide button after playing
-            })
-            .catch(error => console.log("Error playing music:", error));
-    });
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var bgMusic = document.getElementById("bgMusic");
+            var playMusicButton = document.getElementById("playMusicButton");
 
-    // ✅ Restore Music State if user has played before
-    if (localStorage.getItem("musicPlaying") === "true") {
-        playMusicButton.click(); // Simulate click if user played before
-    }
-});
+            // ✅ Allow music to start only after user clicks the button
+            playMusicButton.addEventListener("click", function () {
+                bgMusic.play()
+                    .then(() => {
+                        localStorage.setItem("musicPlaying", "true");
+                        playMusicButton.style.display = "none"; // Hide button after playing
+                    })
+                    .catch(error => console.log("Error playing music:", error));
+            });
 
-
-    // ✅ Restore Music State if user has played before
-    if (localStorage.getItem("musicPlaying") === "true") {
-        playMusicButton.click(); // Simulate click if user played before
-    }
-});
+            // ✅ Restore Music State if user has played before
+            if (localStorage.getItem("musicPlaying") === "true") {
+                playMusicButton.click(); // Simulate click if user played before
+            }
 
             // 🚀 Logout Functionality
             var logoutButton = document.getElementById("logoutButton");
